@@ -17,6 +17,7 @@ scoreSubmit = document.querySelector("#subUp");
 var nameLocal = document.querySelector('.newName');
 var notHigh = document.querySelector('#notHigh');
 var scoreHere = 0;
+var reStart = document.querySelector("#restart");
 
 const quizQuest = [
     {
@@ -115,6 +116,7 @@ function checkAnswer(event) {
     }
 // Hide question/answer dialog, 
 function endScore() {
+    // reStart.style.display = "none";
     scoreHere = secTimer++;
     question.textContent = "";
     boxZero.style.display = "none";
@@ -124,8 +126,8 @@ function endScore() {
     retRes.textContent=("Quiz Over");
     seeScores.style.display = "block";
     newestScore.textContent = scoreHere;
-
     scoreSubmit.addEventListener("click", function() {
+        scoreSubmit.style.display = "none";
         let highLocal = JSON.parse(localStorage.getItem('scoreslog'));
         if (highLocal === null){
         var lsJSON = {
@@ -133,7 +135,7 @@ function endScore() {
             scoreHere: scoreHere
         };
         localStorage.setItem("scoreslog", JSON.stringify(lsJSON));
-        notHigh.textContent="New high Score! Well done.";
+        notHigh.textContent="New High Score! Well done.";
     } else{ 
         if (highLocal.scoreHere > scoreHere) {
         notHigh.textContent="Sorry, your score is not a high score.";}
@@ -144,7 +146,10 @@ function endScore() {
         };
         localStorage.setItem("scoreslog", JSON.stringify(lsJSON));
         notHigh.textContent="New high Score! Well done."; }
-    }})}
+    }    
+})
+reStart.addEventListener("click", function() {location.reload()});
+}
 
 // Begin test when start button pressed
 begin.addEventListener("click", startTest);
