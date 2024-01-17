@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="David Carioto">
+    <meta name="keywords" content="coding quiz, web developement test">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" type="image/ico" sizes="16x16"
+        href="./assets/images/web_icon.ico">
+    <noscript>JavaScript is unavailable or turned off.<bs>
+	      Many features will not work properly<bs>
+              due to this.</noscript>
+    <title>Coding Challenge Quiz</title>
+  </head>
+
+  <body>
+    
+    <div class="container">
+      <nav>
+        <a class="scores" href="./index2.html">View High Score</a>
+        <span class="time" id="timer"></span>
+      </nav>
+      <h1>Coding Quiz Challenge</h1>
+      <div class="question" id="displayQuestion"></div>
+      <button type="button" id="startBut" data-state="hidden">Start Quiz</button> 
+      <div class="boxContainer">
+      <div class="box zero choice" id="options" value="0" data-state="hidden">1</div>
+      <div class="box one choice" id="options" value="1" data-state="hidden">2</div>
+      <div class="box two choice" id="options" value="2" data-state="hidden">3</div>
+      <div class="box three choice" id="options" value="3" data-state="hidden">4</div>
+      </div>
+    </section>
+      <div class="response"></div>
+   
+  <div class="scoresheet">
+    <div>Your Score:</div>
+    <div class="newScore"></div>
+    <input type="text" class="newName" placeholder="Name"/>
+    <br>
+    <button id="subUp">Submit</button>
+    <div id="notHigh"></div>
+
+  </div>
+   <script src="./assets/js/script.js"></script>
+  </body>
+</html>
