@@ -72,3 +72,30 @@ nav {
     font-weight: 900;
     color: darkcyan;
 }
+
+/* Tablets */
+@media screen and (max-width: 992px) {
+.container{ width:95%;
+               height: auto;
+}
+
+.question{ 
+    padding: 0px;
+    font-size: 18px;
+}
+h1,
+button{font-size: 25px;}
+
+.box,
+nav,
+.time,
+.scoresheet {
+    font-size: 18px;
+ }
+}
+  /* Small smartphones
+  @media screen and (max-width: 576px) {
+    .sample-img {
+      background-color: ;
+    }
+  } */

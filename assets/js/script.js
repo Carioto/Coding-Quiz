@@ -16,6 +16,8 @@ var numCorrect = 0;
 scoreSubmit = document.querySelector("#subUp");
 var nameLocal = document.querySelector('.newName');
 var notHigh = document.querySelector('#notHigh');
+var scoreHere = 0;
+
 const quizQuest = [
     {
         quest:"Commonly used data types DO NOT include:",
@@ -113,7 +115,7 @@ function checkAnswer(event) {
     }
 // Hide question/answer dialog, 
 function endScore() {
-    var scoreHere = secTimer++;
+    scoreHere = secTimer++;
     question.textContent = "";
     boxZero.style.display = "none";
     boxOne.style.display = "none";
@@ -124,17 +126,26 @@ function endScore() {
     newestScore.textContent = scoreHere;
 
     scoreSubmit.addEventListener("click", function() {
-        var highLocal = JSON.parse(localStorage.getItem('scoreslog'));
-        if (highLocal.scoreHere < scoreHere){
+        let highLocal = JSON.parse(localStorage.getItem('scoreslog'));
+        if (highLocal === null){
         var lsJSON = {
             nameLocal: nameLocal.value,
             scoreHere: scoreHere
         };
         localStorage.setItem("scoreslog", JSON.stringify(lsJSON));
-    }else{notHigh.textContent="Sorry, your score is not a high score."}
-    })
-    
-};
+        notHigh.textContent="New high Score! Well done.";
+    } else{ 
+        if (highLocal.scoreHere > scoreHere) {
+        notHigh.textContent="Sorry, your score is not a high score.";}
+        else{
+            lsJSON = {
+            nameLocal: nameLocal.value,
+            scoreHere: scoreHere
+        };
+        localStorage.setItem("scoreslog", JSON.stringify(lsJSON));
+        notHigh.textContent="New high Score! Well done."; }
+    }})}
+
 // Begin test when start button pressed
 begin.addEventListener("click", startTest);
 // Check answer when choice is made
